@@ -1,6 +1,10 @@
 angular.module('app', ['ngMaterial','ui.router'])
   .config(['$stateProvider','$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     $stateProvider
+      .state('home', {
+        url : '/',
+        templateUrl : 'views/home.html'
+      })
       .state('login', {
         url : '/login',
         templateUrl : 'views/login.html'
@@ -17,10 +21,14 @@ angular.module('app', ['ngMaterial','ui.router'])
         url : '/forgotusername',
         templateUrl : 'views/forgotusername.html'
       })
+      .state('message', {
+        url : '/message',
+        templateUrl : 'views/message.html'
+      })
       .state('forgotpassword', {
         url : '/forgotpassword',
         templateUrl : 'views/forgotpassword.html'
       });
 
-      $urlRouterProvider.otherwise('login');
+      $urlRouterProvider.otherwise('home');
   }]);
