@@ -1,0 +1,18 @@
+<md-content layout-padding>
+  <h1>Welcome User</h1>
+  <form name="loginForm">
+    <md-input-container>
+      <label for="username">Username</label>
+      <input type="text" required name="username">
+    </md-input-container>
+    <md-input-container>
+      <label for="password">Password</label>
+      <input type="password" required name="password">
+    </md-input-container>
+
+    <md-button class="md-raised" ui-sref="manage">Login</md-button>
+    <md-button class="md-primary md-raised" ui-sref="register">Register</md-button>
+    <md-button class="md-primary" ui-sref="forgotusername">Forgot Username?</md-button>
+    <md-button class="md-primary" ui-sref="forgotpassword">Forgot Password?</md-button>
+  </form>
+</md-content>

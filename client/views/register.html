@@ -1,0 +1,33 @@
+<md-content layout-padding class="autoScroll">
+  <form name="registerForm">
+  <md-input-container class="md-icon-float">
+    <!-- Use floating label instead of placeholder -->
+    <label>Name</label>
+    <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+    <input ng-model="user.name" type="text" ng-required="true">
+  </md-input-container>
+  <md-input-container class="md-icon-float">
+    <label>Username</label>
+    <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+    <input ng-model="user.phone" type="text" ng-required="true">
+  </md-input-container>
+  <md-input-container class="md-icon-float">
+    <label>Email</label>
+    <!-- Use floating placeholder instead of label -->
+    <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="email"></md-icon>
+    <input ng-model="user.email" type="email" ng-required="true">
+  </md-input-container>
+  <md-input-container class="md-icon-float">
+    <label>Password</label>
+    <md-icon md-svg-src="img/icons/ic_place_24px.svg" style="display:inline-block;"></md-icon>
+    <input ng-model="user.address" type="password" ng-required="true">
+  </md-input-container>
+  <md-input-container class="md-icon-float">
+    <label>Retype Password</label>
+    <md-icon md-svg-src="img/icons/ic_place_24px.svg" style="display:inline-block;"></md-icon>
+    <input ng-model="user.address" type="password" ng-required="true">
+  </md-input-container>
+
+  <md-button class="md-raised" ui-sref="manage">Register</md-button>
+</form>
+</md-content>
