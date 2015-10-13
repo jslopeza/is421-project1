@@ -1,35 +1,47 @@
 <md-content layout-padding class="autoScroll">
-  <form name="registerForm">
-  <md-input-container class="md-icon-float">
-    <!-- Use floating label instead of placeholder -->
+  <form name="registerForm" novalidate>
+  <md-input-container>
     <label>Name</label>
-    <md-icon class="name"></md-icon>
-    <input ng-model="user.name" type="text" ng-required="true">
+    <input ng-model="name" name="name" type="text" required>
+    <div ng-messages="registerForm.name.$error">
+      <div ng-message="required">This is required.</div>
+      <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
+    </div>
   </md-input-container>
-  <md-input-container class="md-icon-float">
+  <md-input-container>
     <label>Username</label>
-    <md-icon></md-icon>
-    <input ng-model="user.phone" type="text" ng-required="true">
+    <input ng-model="username" name="username" type="text" ng-required="true">
+    <div ng-messages="registerForm.username.$error">
+      <div ng-message="required">This is required.</div>
+      <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
+    </div>
   </md-input-container>
-  <md-input-container class="md-icon-float">
+  <md-input-container>
     <label>Email</label>
-    <!-- Use floating placeholder instead of label -->
-    <md-icon class="email"></md-icon>
-    <input ng-model="user.email" type="email" ng-required="true">
+    <input ng-model="email" name="email" type="email" ng-required="true">
+    <div ng-messages="registerForm.email.$error">
+      <div ng-message="required">This is required.</div>
+      <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
+    </div>
   </md-input-container>
-  <md-input-container class="md-icon-float">
+  <md-input-container>
     <label>Password</label>
-    <md-icon style="display:inline-block;"></md-icon>
-    <input name="real_pwd" type="password" ng-required="true">
+    <input name="real_pwd" name="real_pwd" ng-model="real_pwd" type="password" ng-required="true">
+    <div ng-messages="registerForm.real_pwd.$error">
+      <div ng-message="required">This is required.</div>
+    </div>
   </md-input-container>
-  <md-input-container class="md-icon-float">
+  <md-input-container>
     <label>Retype Password</label>
-    <md-icon style="display:inline-block;"></md-icon>
-    <input name="real_pwd2" type="password" ng-required="true">
+    <input name="real_pwd2" name="real_pwd2" ng-model="real_pwd2" type="password" ng-required="true">
+    <div ng-messages="registerForm.real_pwd2.$error">
+      <div ng-message="required">This is required.</div>
+      <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
+    </div>
   </md-input-container>
 
   <input type="hidden" name="password">
 
-  <md-button class="md-raised" ui-sref="manage">Register</md-button>
+  <md-button class="md-raised" ng-click="submit()">Register</md-button>
 </form>
 </md-content>

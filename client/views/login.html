@@ -1,16 +1,23 @@
 <md-content layout-padding>
   <h1>Welcome User</h1>
-  <form name="loginForm">
+  <form name="loginForm" novalidate>
     <md-input-container>
       <label for="username">Username</label>
-      <input type="text" required name="username">
+      <input ng-model="username" type="text" required name="username">
+      <div ng-if="loginForm.username.$error" ng-messages="loginForm.username.$error">
+        <div ng-message="required">This is required.</div>
+        <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
+      </div>
     </md-input-container>
     <md-input-container>
       <label for="password">Password</label>
-      <input type="password" required name="password">
+      <input type="password" ng-model="password" required name="password">
+      <div ng-if="loginForm.username.$error" ng-messages="loginForm.username.$error">
+        <div ng-message="required">This is required.</div>
+        <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
+      </div>
     </md-input-container>
-
-    <md-button class="md-raised" ui-sref="manage">Login</md-button>
+    <md-button class="md-raised" ng-click="submit()">Login</md-button>
     <md-button class="md-primary md-raised" ui-sref="register">Register</md-button>
     <md-button class="md-primary" ui-sref="forgotusername">Forgot Username?</md-button>
     <md-button class="md-primary" ui-sref="forgotpassword">Forgot Password?</md-button>

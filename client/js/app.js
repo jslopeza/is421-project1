@@ -1,4 +1,4 @@
-angular.module('app', ['ngMaterial','ui.router'])
+angular.module('app', ['ngMaterial','ui.router','ngMessages'])
   .config(['$stateProvider','$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {
@@ -7,7 +7,8 @@ angular.module('app', ['ngMaterial','ui.router'])
       })
       .state('login', {
         url : '/login',
-        templateUrl : 'views/login.html'
+        templateUrl : 'views/login.html',
+        controller : 'formValidation'
       })
       .state('manage', {
         url : '/manage',
@@ -15,7 +16,8 @@ angular.module('app', ['ngMaterial','ui.router'])
       })
       .state('register', {
         url : '/register',
-        templateUrl : 'views/register.html'
+        templateUrl : 'views/register.html',
+        controller : 'formValidation'
       })
       .state('forgotusername', {
         url : '/forgotusername',
@@ -31,4 +33,21 @@ angular.module('app', ['ngMaterial','ui.router'])
       });
 
       $urlRouterProvider.otherwise('home');
-  }]);
+  }])
+  .controller('formValidation', ['$scope', '$state', function($scope, $state){
+    $scope.submit = function(){
+      if($state.current.name == 'login'){
+        if($scope.username && $scope.password){
+          $state.go('manage');
+        }
+      } else if ($state.current.name == 'register') {
+        if($scope.username && $scope.real_pwd && $scope.real_pwd2 && $scope.name && $scope.name){
+          if($scope.real_pwd != $scope.real_pwd2){
+            alert("Password don't match");
+          } else {
+            $state.go('home');
+          }
+        }
+      }
+    }
+  }])
