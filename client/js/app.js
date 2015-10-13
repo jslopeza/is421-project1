@@ -12,7 +12,8 @@ angular.module('app', ['ngMaterial','ui.router','ngMessages'])
       })
       .state('manage', {
         url : '/manage',
-        templateUrl : 'views/manage.html'
+        templateUrl : 'views/manage.html',
+        controller : 'showDialog'
       })
       .state('register', {
         url : '/register',
@@ -50,4 +51,17 @@ angular.module('app', ['ngMaterial','ui.router','ngMessages'])
         }
       }
     }
+  }])
+  .controller('showDialog', ['$scope', '$mdDialog', function($scope, $mdDialog){
+    $scope.showProfile = function(){
+      $mdDialog.show({
+        controller: 'showDialog',
+        templateUrl: 'views/profile.html',
+        clickOutsideToClose:true
+      })
+    };
+
+    $scope.cancel = function() {
+      $mdDialog.cancel();
+    };
   }])
